@@ -1,10 +1,21 @@
 import express from "express";
- 
+import { prismaClient } from "store/client";
 
 const app = express();
-
-app.post("/website", (req, res) => {
-  
+app.use(express.json());
+app.post("/website", async (req, res) => {
+   if(!req.body.url)
+    return res.status(400).json({
+        message:"url is required"
+    })
+  const website=await prismaClient.website.create({
+    data: {
+      url: req.body.url,
+    }
+  })
+  res.json({
+    id:website.id
+  })
 });
 
 app.get("/status/:websiteId",(req,res) => {
