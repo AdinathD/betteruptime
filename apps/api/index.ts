@@ -26,8 +26,31 @@ app.post("/website",AuthMiddleware, async (req, res) => {
   })
 });
 
-app.get("/status/:websiteId",AuthMiddleware,(req,res) => {
-   
+app.get("/status/:websiteId",AuthMiddleware,async(req,res) => {
+   const website=await prismaClient.website.findFirst({
+    where:{
+      user_id:req.userId!,
+      id:req.params.websiteId as string
+    },
+    include:{
+      ticks:{
+        orderBy:{
+          createdAt:"desc"
+        },
+        take:1
+      
+      }
+    }
+   })
+   if(!website){
+    res.status(403).json({
+      message:"website not found"
+    })
+    return;
+   }
+   return res.json({
+    website
+   })
     
 })  
 
