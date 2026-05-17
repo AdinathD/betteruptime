@@ -15,7 +15,7 @@ datasource db {
 model Website{
   id String @id @default(uuid())
   url String
-  timeAdded DateTime @default(now())
+  time_added DateTime @default(now())
    ticks WebsiteTick[]
    user_id String
    user User @relation(fields: [user_id], references: [id])

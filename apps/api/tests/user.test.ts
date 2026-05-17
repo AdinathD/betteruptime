@@ -1,7 +1,7 @@
 
 import axios from "axios";
 import {describe, expect, it, test} from "bun:test";
-import { BACKEND_URL } from "./config";
+import { BACKEND_URL } from "../config";
 
 const USER_NAME = Math.random().toString();
 
