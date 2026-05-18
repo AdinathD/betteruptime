@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 
 export function AuthMiddleware(req:Request,res:Response,next:NextFunction){
     const header=req.headers.authorization;
-    if(!header || !header.startsWith("Bearer ")){
+    if(!header){
         return res.status(403).json({
             message:"unauthorised"
         })

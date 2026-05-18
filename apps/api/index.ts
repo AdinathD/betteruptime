@@ -49,7 +49,9 @@ app.get("/status/:websiteId",AuthMiddleware,async(req,res) => {
     return;
    }
    return res.json({
-    website
+    url:website.url,
+    id:website.id,
+    user_id:website.user_id
    })
     
 })  
