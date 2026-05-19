@@ -67,7 +67,7 @@ describe("Can fetch website", () => {
 
     it("Is able to fetch a website that the user created", async () => {
         const websiteResponse = await axios.post(`${BACKEND_URL}/website`, {
-            url: "https://hdjjhdhdjhdj.com/"
+            url: "https://testing.com/"
         }, {
             headers: {
                 Authorization: token1
@@ -88,7 +88,7 @@ describe("Can fetch website", () => {
 
     it("Cant access website created by other user", async () => {
         const websiteResponse = await axios.post(`${BACKEND_URL}/website`, {
-            url: "https://hdjjhdhdjhdj.com/"
+            url: "https://pushertest.com/"
         }, {
             headers: {
                 Authorization: token1
