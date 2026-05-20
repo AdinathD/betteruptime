@@ -37,7 +37,7 @@ app.get("/status/:websiteId",AuthMiddleware,async(req,res) => {
         orderBy:{
           createdAt:"desc"
         },
-        take:1
+        take:10
       
       }
     }
