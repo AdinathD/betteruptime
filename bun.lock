@@ -76,6 +76,7 @@
         "@types/bun": "latest",
       },
       "peerDependencies": {
+        "redisstream": "*",
         "store": "*",
         "typescript": "^5",
       },
