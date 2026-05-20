@@ -102,7 +102,6 @@ type MessageType = {
         url: string,
         id: string
     }
-    //@ts-ignore
 }
 
 const STREAM_NAME = "betteruptime:website";
